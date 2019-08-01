@@ -1,25 +1,25 @@
 $(() => {    
 
-    //$("#authFB").click(() => );
+    const objAuth = new Autenticacion()
+
+    $("#authFB").click(() => objAuth.authCuentaFacebook());
 
     $("#btnRegistroEmail").click(() => {
         const nombres = $('#nombreContactoReg').val();
         const email = $('#emailContactoReg').val();
         const password = $('#passwordReg').val();
         
-        const authentication = new Autenticacion()
-        authentication.crearCuentaEmailPass(email, password, nombres)
+        objAuth.crearCuentaEmailPass(email, password, nombres)
     });
 
     $("#btnInicioEmail").click(() => {
         const email = $('#emailSesion').val();
         const password = $('#passwordSesion').val();
 
-        const auth = new Autenticacion()
-        auth.autEmailPass(email, password)
+        objAuth.autEmailPass(email, password)
     });
 
-    //$("#authGoogle").click(() => //AUTH con GOOGLE);
+    $("#authGoogle").click(() => objAuth.authCuentaGoogle());
 
     //$("#authTwitter").click(() => //AUTH con Twitter);
 
